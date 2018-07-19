@@ -1,0 +1,28 @@
+{
+  "name": "intredo/order-connector",
+  "type": "library",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Paweł Niedzielski",
+      "email": "p.niedzielski@collabro.ch"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Intredo\\OrderConnector\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Intredo\\OrderConnector\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.2"
+  }
+}
