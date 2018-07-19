@@ -11,7 +11,7 @@ in your project directory.
 ## Sample usage
 ```php
 // Instantiate your connector service
-$connector = new \Intredo\OrderConnector\OrderConnector('SHOP-ID', 'API-KEY', 'ENDPOINT');
+$connector = new \Intredo\OrderConnector\OrderConnector('API-KEY', 'ENDPOINT');
 
 // Instantiate your Order
 $order = new \Intredo\OrderConnector\Order();
@@ -24,7 +24,7 @@ $order = new \Intredo\OrderConnector\Order();
 // Second parameter allows you to perform the sending asynchronously by switching it to false. In this case, instead of
 // ResponseInterface, a Promise will be returned.
 // @see http://docs.guzzlephp.org/en/stable/quickstart.html#async-requests for details regarding handling those promises
-$response $connector->sendOrder($order);
+$response = $connector->sendOrder($order);
 // $promise = $connector->sendOrder($order, false);
 // $promise->then(function() {...});
 // $promise->wait();
