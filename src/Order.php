@@ -58,7 +58,7 @@ class Order implements \JsonSerializable
     /**
      * @var string
      */
-    private $cost;
+    private $mainIncome;
 
     /**
      * @var string
@@ -68,7 +68,7 @@ class Order implements \JsonSerializable
     /**
      * @var string
      */
-    private $extraCost;
+    private $conversionExtraIncome;
 
     /**
      * @var string
@@ -113,7 +113,7 @@ class Order implements \JsonSerializable
     /**
      * @var string
      */
-    private $upsellCost;
+    private $upsellIncome;
 
     public function __construct()
     {
@@ -221,15 +221,15 @@ class Order implements \JsonSerializable
     }
 
     /**
-     * @param string $cost
+     * @param string $income
      * @return Order
      */
-    public function setCost($cost)
+    public function setMainIncome($income)
     {
-        if (! is_numeric($cost)) {
-            throw new \InvalidArgumentException('Cost should be numeric');
+        if (! is_numeric($income)) {
+            throw new \InvalidArgumentException('Main income should be numeric');
         }
-        $this->cost = $cost;
+        $this->mainIncome = $income;
         return $this;
     }
 
@@ -247,15 +247,15 @@ class Order implements \JsonSerializable
     }
 
     /**
-     * @param string $extraCost
+     * @param string $conversionExtraIncome
      * @return Order
      */
-    public function setExtraCost($extraCost)
+    public function setConversionExtraIncome($conversionExtraIncome)
     {
-        if (! is_numeric($extraCost)) {
-            throw new \InvalidArgumentException('Extra Cost should be numeric');
+        if (! is_numeric($conversionExtraIncome)) {
+            throw new \InvalidArgumentException('Conversion extra income should be numeric');
         }
-        $this->extraCost = $extraCost;
+        $this->conversionExtraIncome = $conversionExtraIncome;
         return $this;
     }
 
@@ -340,15 +340,15 @@ class Order implements \JsonSerializable
     }
 
     /**
-     * @param string $upsellCost
+     * @param string $upsellIncome
      * @return Order
      */
-    public function setUpsellCost($upsellCost)
+    public function setUpsellIncome($upsellIncome)
     {
-        if (! is_numeric($upsellCost)) {
-            throw new \InvalidArgumentException('Upsell Cost should be numeric');
+        if (! is_numeric($upsellIncome)) {
+            throw new \InvalidArgumentException('Upsell income should be numeric');
         }
-        $this->upsellCost = $upsellCost;
+        $this->upsellIncome = $upsellIncome;
         return $this;
     }
 
@@ -374,9 +374,9 @@ class Order implements \JsonSerializable
             'is_fraud' => $this->fraud,
             'is_test' => $this->test,
             'address_data' => $this->addressData,
-            'cost' => $this->cost,
+            'cost' => $this->mainIncome,
             'conversionCurrency' => $this->conversionCurrency,
-            'extra_cost' => $this->extraCost,
+            'extra_cost' => $this->conversionExtraIncome,
             'ref' => $this->ref,
             'ad_ref' => $this->adref,
             'algo_id' => '',
@@ -386,7 +386,7 @@ class Order implements \JsonSerializable
             'user_browser' => $this->userBrowser,
             'user_os' => $this->userOs,
             'user_resolution' => $this->userResolution,
-            'upsell_cost' => $this->upsellCost,
+            'upsell_cost' => $this->upsellIncome,
         ]);
     }
 }

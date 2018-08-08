@@ -17,7 +17,7 @@ class Package implements \JsonSerializable
     /**
      * @var string
      */
-    private $cost;
+    private $income;
 
     /**
      * @var array
@@ -31,12 +31,12 @@ class Package implements \JsonSerializable
     }
 
     /**
-     * @param string $cost
+     * @param string $income
      * @return Package
      */
-    public function setCost($cost)
+    public function setIncome($income)
     {
-        $this->cost = $cost;
+        $this->income = $income;
         return $this;
     }
 
@@ -62,7 +62,7 @@ class Package implements \JsonSerializable
         return [
             'code' => $this->code,
             'qty' => $this->quantity,
-            'cost' => $this->cost,
+            'cost' => $this->income,
             'products' => $this->products,
         ];
     }
