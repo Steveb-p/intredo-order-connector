@@ -24,17 +24,17 @@ class Package implements \JsonSerializable
      */
     private $products = [];
 
-    public function __construct(string $code, int $quntity = 1)
+    public function __construct($code, $quantity = 1)
     {
         $this->code = $code;
-        $this->quantity = $quntity;
+        $this->quantity = $quantity;
     }
 
     /**
      * @param string $cost
      * @return Package
      */
-    public function setCost(string $cost): Package
+    public function setCost($cost)
     {
         $this->cost = $cost;
         return $this;
@@ -44,7 +44,7 @@ class Package implements \JsonSerializable
      * @param Product $product
      * @return Package
      */
-    public function addProduct(Product $product): Package
+    public function addProduct(Product $product)
     {
         $this->products[] = $product;
         return $this;

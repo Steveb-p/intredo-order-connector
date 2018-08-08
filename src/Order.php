@@ -124,7 +124,7 @@ class Order implements \JsonSerializable
      * @param string $cookieId
      * @return Order
      */
-    public function setCookieId(string $cookieId): self
+    public function setCookieId($cookieId)
     {
         $this->cookieId = $cookieId;
         return $this;
@@ -134,7 +134,7 @@ class Order implements \JsonSerializable
      * @param string $clientId
      * @return Order
      */
-    public function setClientId(string $clientId): self
+    public function setClientId($clientId)
     {
         $this->clientId = $clientId;
         return $this;
@@ -144,7 +144,7 @@ class Order implements \JsonSerializable
      * @param string $orderNo
      * @return Order
      */
-    public function setOrderNo(string $orderNo): self
+    public function setOrderNo($orderNo)
     {
         $this->orderNo = $orderNo;
         return $this;
@@ -154,7 +154,7 @@ class Order implements \JsonSerializable
      * @param string $countryIso
      * @return Order
      */
-    public function setCountryIso(string $countryIso): self
+    public function setCountryIso($countryIso)
     {
         $this->countryIso = $countryIso;
         return $this;
@@ -164,7 +164,7 @@ class Order implements \JsonSerializable
      * @param \DateTimeInterface $createdAt
      * @return Order
      */
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt)
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -174,7 +174,7 @@ class Order implements \JsonSerializable
      * @param bool $confirmed_1
      * @return Order
      */
-    public function setConfirmed1(bool $confirmed_1): self
+    public function setConfirmed1($confirmed_1)
     {
         $this->confirmed_1 = $confirmed_1;
         return $this;
@@ -184,7 +184,7 @@ class Order implements \JsonSerializable
      * @param bool $confirmed_2
      * @return Order
      */
-    public function setConfirmed2(bool $confirmed_2): self
+    public function setConfirmed2($confirmed_2)
     {
         $this->confirmed_2 = $confirmed_2;
         return $this;
@@ -194,7 +194,7 @@ class Order implements \JsonSerializable
      * @param bool $fraud
      * @return Order
      */
-    public function setFraud(bool $fraud): self
+    public function setFraud($fraud)
     {
         $this->fraud = $fraud;
         return $this;
@@ -204,7 +204,7 @@ class Order implements \JsonSerializable
      * @param bool $test
      * @return Order
      */
-    public function setTest(bool $test): self
+    public function setTest($test)
     {
         $this->test = $test;
         return $this;
@@ -214,7 +214,7 @@ class Order implements \JsonSerializable
      * @param AddressData $addressData
      * @return Order
      */
-    public function setAddressData(AddressData $addressData): self
+    public function setAddressData(AddressData $addressData)
     {
         $this->addressData = $addressData;
         return $this;
@@ -224,7 +224,7 @@ class Order implements \JsonSerializable
      * @param string $cost
      * @return Order
      */
-    public function setCost(string $cost): self
+    public function setCost($cost)
     {
         if (! is_numeric($cost)) {
             throw new \InvalidArgumentException('Cost should be numeric');
@@ -237,7 +237,7 @@ class Order implements \JsonSerializable
      * @param string $conversionCurrency
      * @return Order
      */
-    public function setConversionCurrency(string $conversionCurrency): self
+    public function setConversionCurrency($conversionCurrency)
     {
         if (strlen($conversionCurrency) !== 3) {
             throw new \InvalidArgumentException('Conversion Currency should be 3 letter long iso code');
@@ -250,7 +250,7 @@ class Order implements \JsonSerializable
      * @param string $extraCost
      * @return Order
      */
-    public function setExtraCost(string $extraCost): self
+    public function setExtraCost($extraCost)
     {
         if (! is_numeric($extraCost)) {
             throw new \InvalidArgumentException('Extra Cost should be numeric');
@@ -263,7 +263,7 @@ class Order implements \JsonSerializable
      * @param string $ref
      * @return Order
      */
-    public function setRef(string $ref): self
+    public function setRef($ref)
     {
         $this->ref = $ref;
         return $this;
@@ -273,7 +273,7 @@ class Order implements \JsonSerializable
      * @param string $adref
      * @return Order
      */
-    public function setAdref(string $adref): self
+    public function setAdref($adref)
     {
         $this->adref = $adref;
         return $this;
@@ -293,7 +293,7 @@ class Order implements \JsonSerializable
      * @param Package $package
      * @return Order
      */
-    public function addPackage(Package $package): self
+    public function addPackage(Package $package)
     {
         $this->packages[] = $package;
         return $this;
@@ -303,7 +303,7 @@ class Order implements \JsonSerializable
      * @param string $userIp
      * @return Order
      */
-    public function setUserIp(string $userIp): self
+    public function setUserIp($userIp)
     {
         $this->userIp = $userIp;
         return $this;
@@ -313,7 +313,7 @@ class Order implements \JsonSerializable
      * @param string $userBrowser
      * @return Order
      */
-    public function setUserBrowser(string $userBrowser): self
+    public function setUserBrowser($userBrowser)
     {
         $this->userBrowser = $userBrowser;
         return $this;
@@ -323,7 +323,7 @@ class Order implements \JsonSerializable
      * @param string $userOs
      * @return Order
      */
-    public function setUserOs(string $userOs): self
+    public function setUserOs($userOs)
     {
         $this->userOs = $userOs;
         return $this;
@@ -333,7 +333,7 @@ class Order implements \JsonSerializable
      * @param string $userResolution
      * @return Order
      */
-    public function setUserResolution(string $userResolution): self
+    public function setUserResolution($userResolution)
     {
         $this->userResolution = $userResolution;
         return $this;
@@ -343,7 +343,7 @@ class Order implements \JsonSerializable
      * @param string $upsellCost
      * @return Order
      */
-    public function setUpsellCost(string $upsellCost): self
+    public function setUpsellCost($upsellCost)
     {
         if (! is_numeric($upsellCost)) {
             throw new \InvalidArgumentException('Upsell Cost should be numeric');

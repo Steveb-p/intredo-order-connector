@@ -44,7 +44,7 @@ class AddressData implements \JsonSerializable
      * @param string $name
      * @return AddressData
      */
-    public function setName(string $name): self
+    public function setName($name)
     {
         $this->name = $name;
         return $this;
@@ -54,7 +54,7 @@ class AddressData implements \JsonSerializable
      * @param string $street
      * @return AddressData
      */
-    public function setStreet(string $street): self
+    public function setStreet($street)
     {
         $this->street = $street;
         return $this;
@@ -64,7 +64,7 @@ class AddressData implements \JsonSerializable
      * @param string $postcode
      * @return AddressData
      */
-    public function setPostcode(string $postcode): self
+    public function setPostcode($postcode)
     {
         $this->postcode = $postcode;
         return $this;
@@ -74,7 +74,7 @@ class AddressData implements \JsonSerializable
      * @param string $city
      * @return AddressData
      */
-    public function setCity(string $city): self
+    public function setCity($city)
     {
         $this->city = $city;
         return $this;
@@ -84,7 +84,7 @@ class AddressData implements \JsonSerializable
      * @param string $country
      * @return AddressData
      */
-    public function setCountry(string $country): self
+    public function setCountry($country)
     {
         $this->country = $country;
         return $this;
@@ -94,7 +94,7 @@ class AddressData implements \JsonSerializable
      * @param string $phone
      * @return AddressData
      */
-    public function setPhone(string $phone): self
+    public function setPhone($phone)
     {
         $this->phone = $phone;
         return $this;
@@ -104,7 +104,7 @@ class AddressData implements \JsonSerializable
      * @param string $email
      * @return AddressData
      */
-    public function setEmail($email): self
+    public function setEmail($email)
     {
         $this->email = $email;
         return $this;

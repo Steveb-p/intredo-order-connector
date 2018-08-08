@@ -4,7 +4,7 @@ Helper library providing all necessary details to constructing properly tracked 
 ## Installation
 Simply run 
 ```bash
-composer require intredo/order-connector
+composer require intredo/order-connector@dev-master
 ```
 in your project directory.
 

@@ -14,7 +14,7 @@ class Product implements \JsonSerializable
      */
     private $quantity = 1;
 
-    public function __construct(string $code, int $quantity = 1)
+    public function __construct($code, $quantity = 1)
     {
         $this->code = $code;
         $this->quantity = $quantity;
