@@ -38,7 +38,7 @@ class OrderConnector
      * @return \GuzzleHttp\Promise\PromiseInterface|\Psr\Http\Message\ResponseInterface
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function sendOrder(Order $order, bool $sync = true)
+    public function sendOrder(Order $order, $sync = true)
     {
         $data = $order->jsonSerialize();
         $data['shop_id'] = $this->apiKey;
