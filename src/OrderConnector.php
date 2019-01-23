@@ -5,7 +5,6 @@ namespace Intredo\OrderConnector;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\RequestOptions;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class OrderConnector
 {
@@ -19,7 +18,7 @@ class OrderConnector
      */
     private $apiKey;
 
-    public function __construct(string $apiKey, string $endpoint)
+    public function __construct($apiKey, $endpoint)
     {
         $this->client = new Client([
             'base_uri' => $endpoint,
@@ -60,6 +59,37 @@ class OrderConnector
             return $this->client->request('POST', $actionUrl, $options);
         } else {
             return $this->client->requestAsync('POST', $actionUrl, $options);
+        }
+    }
+
+    /**
+     * @param PatchOrder $orderPatch
+     * @param bool $sync
+     * @return \GuzzleHttp\Promise\PromiseInterface|\Psr\Http\Message\ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function sendOrderUpdate(PatchOrder $orderPatch, $sync = true)
+    {
+        $data = $orderPatch->jsonSerialize();
+        $data['shop_id'] = $this->apiKey;
+        $data['apikey'] = $this->apiKey;
+
+        $options = [
+            RequestOptions::JSON => [$data],
+            RequestOptions::ALLOW_REDIRECTS => [
+                'max' => 5,
+                // Allow POST to be redirected as POST without losing body
+                'strict' => true,
+                // Forbid dropping to insecure requests
+                'protocols' => ['https'],
+            ],
+        ];
+
+        $actionUrl = '/api/add_order_patch?t=' . time();
+        if ($sync) {
+            return $this->client->request('PATCH', $actionUrl, $options);
+        } else {
+            return $this->client->requestAsync('PATCH', $actionUrl, $options);
         }
     }
 }
