@@ -18,11 +18,10 @@ class OrderConnector
      */
     private $apiKey;
 
-    public function __construct($apiKey, $endpoint)
+    public function __construct($apiKey, $endpoint, $options = [])
     {
-        $this->client = new Client([
-            'base_uri' => $endpoint,
-        ]);
+        $options['base_uri'] = $endpoint;
+        $this->client = new Client($options);
         $this->apiKey = $apiKey;
     }
 
